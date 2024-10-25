@@ -1,17 +1,16 @@
-
 # app/main.py
-from fastapi import FastAPI, BackgroundTasks, HTTPException, Depends # type: ignore
-from fastapi.responses import FileResponse # type: ignore
+from fastapi import FastAPI, BackgroundTasks, HTTPException, Depends
+from fastapi.responses import FileResponse
 import pandas as pd
 from typing import Dict
 import os
 import logging
-from .database.base import DatabaseAdapter
-from .database.postgres_adapter import PostgresAdapter
-from .database.mongo_adapter import MongoAdapter
-from .utils.data_generators import generate_dummy_leads, generate_dummy_campaigns
-from .utils.metrics import transform_lead_data, transform_campaign_data
-from .utils.email import send_email_alert
+from app.database.base import DatabaseAdapter
+from app.database.postgres_adapter import PostgresAdapter
+from app.database.mongo_adapter import MongoAdapter
+from app.utils.data_generators import generate_dummy_leads, generate_dummy_campaigns
+from app.utils.metrics import transform_lead_data, transform_campaign_data
+from app.utils.email import send_email_alert
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
